@@ -25,9 +25,12 @@ func main() {
 	fmt.Printf("Please book your tickets! %v tickets available\n", remainingTickets)
 	fmt.Printf("The time is %v\n", time.Now())
 
+	//array/slice(dynamic array) declaration
+	bookings := []string{}
+
 	// Assigning values based on user input data
 	fmt.Printf("Enter your First Name:\n")
-	fmt.Scan(&firstName) //pointers
+	fmt.Scan(&firstName) //& before vars implies pointers location where the value has to be stored.
 	fmt.Printf("Enter your Last Name:\n")
 	fmt.Scan(&lastName)
 	fmt.Printf("Enter your E-mail address:\n")
@@ -38,6 +41,15 @@ func main() {
 	//ticket count logic
 	remainingTickets = remainingTickets - userTickets
 
+	//printing array values
+	//bookings[0] = firstName + "" + lastName
+
+	// assigning values to slices dynamically
+	bookings = append(bookings, firstName+""+lastName)
+
 	fmt.Printf("Thank you  %v %v for booking %v ticket(s). You will receive a confirmation E-mail at %v\n", firstName, lastName, userTickets, email)
 	fmt.Printf("%v Remaining tickets for %v concert\n", remainingTickets, eventname)
+
+	//printing slice values
+	fmt.Printf("all the bookings done so far:\n %v", bookings)
 }
